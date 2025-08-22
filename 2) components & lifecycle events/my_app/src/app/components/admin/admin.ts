@@ -1,0 +1,41 @@
+import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+
+@Component({
+  selector: 'app-admin',
+  imports: [],
+  templateUrl: './admin.html',
+  styleUrl: './admin.css'
+})
+export class Admin implements OnInit, AfterViewInit, OnDestroy {
+
+  // 🔹 constructor
+  // When it runs: Immediately when component is CREATED in memory
+  // Use: initialize variables, inject services
+  // ❌ Don’t do API calls (component not ready yet)
+  constructor() {
+    console.log('constructor run');
+  }
+
+  //----lifecycle hooks/events----
+
+  // 🔹 ngOnInit
+  // When it runs: Right AFTER constructor, when component is INITIALIZED
+  // Use: API calls, fetching data, starting subscriptions
+  ngOnInit(): void {
+    console.log('ngOnInit run');
+  }
+
+  // 🔹 ngAfterViewInit
+  // When it runs: AFTER the HTML (view) of the component is CREATED & rendered
+  // Use: DOM manipulations, initialize charts/maps, focus input fields
+  ngAfterViewInit(): void {
+    console.log('ngAfterViewInit run');
+  }
+
+  // 🔹 ngOnDestroy
+  // When it runs: Just BEFORE the component is DESTROYED (like navigating away or removing component)
+  // Use: cleanup → unsubscribe from Observables, clear timers/intervals, remove event listeners
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy run');
+  }
+}

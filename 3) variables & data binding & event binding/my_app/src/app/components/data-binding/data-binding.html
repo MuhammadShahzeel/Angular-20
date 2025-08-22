@@ -1,0 +1,38 @@
+<p>data-binding works!</p>
+
+<h1>Accessing Variables Here Using Interpolation</h1>
+
+<p [class]="myClass">Course Name: {{ courseName }}</p>
+<p>Is Active: {{ isActive }}</p>
+<p>Current Date: {{ currentDate }}</p>
+
+<h1>Using Interpolation</h1>
+<input type="text" value="{{ rollNo }}" />
+<button disabled="{{ isActive }}">Save</button>
+<h1>Using Property Binding</h1>
+<input type="text" [value]="rollNo" />
+<button [disabled]="isActive">Save</button>
+<!-- main difference interpolation sirf text k liye kaam krta hy
+example dekho neechy -->
+<!-- is active false hy phir bhi button disable hy {{}} nhi kam kre ga yaha -->
+<!-- Agar sirf text/string inject karna hai → {{ }} use karo. -->
+
+
+<h1>Using Two-Way Data Binding</h1>
+ <!-- jahan variable ki value change hui html bh change hogi -->
+ <!-- sirf is sy value change hogi -->
+<input type="text" [(ngModel)]="courseName" />
+<input type="text" [value]="courseName" /> 
+
+<!-- is ki value hr jagah change hogi -->
+ <!-- is k liye hmy  import karna paray ga FormsModule ts my -->
+
+<p>Welcome to, {{ courseName }} 👋</p>
+
+<input type="checkbox" [(ngModel)]="isActive" />
+
+<h1>Using Function and (click)</h1>
+<button (click)="showAlert()">click</button>
+
+<!-- similarly you can use all the events -->
+<div style="width: 200px; height: 200px; background-color: lightblue;" (mouseover)="showAlert()">hover me</div>

@@ -1,0 +1,23 @@
+<p>signal works!</p>
+
+<h1>normal variable</h1>
+<p>{{ myVariable }}</p>
+<h1>signal variable</h1>
+<p>{{ mySignalVariable() }}</p>
+<h1>set example </h1>
+<p>{{ mySignalWithReturn() }}</p>
+<button (click)="changeValue()">Change Values</button>
+
+<h1>update example with array </h1>
+
+<button (click)="addCity('karachi')">Add City</button>
+{{cities()}}
+
+<h1>update example with object</h1>
+<button (click)="updateObj()">update obj</button>
+{{studentObj1().name}} -- {{studentObj1().city}}
+    
+<h1>set example with object</h1>
+<button (click)="setObj()">set obj</button>
+{{studentObj2().name}} -- {{studentObj2().city}}
+

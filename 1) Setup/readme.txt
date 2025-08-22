@@ -1,6 +1,8 @@
 - install nodejs
 - npm install -g @angular/cli                 -> only one time
-- ng v                                        -> to check angular correctly installed
+- ng v  
+
+CREATE PROJECT:                                      -> to check angular correctly installed
 - ng new proj_name                            -> to create a project
 * it will ask you some questions
 - share pseudonymous                          -> NO
