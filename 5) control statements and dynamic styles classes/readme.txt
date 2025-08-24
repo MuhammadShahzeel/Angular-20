@@ -8,9 +8,7 @@ in angular.json
   "node_modules/bootstrap/dist/css/bootstrap.min.css",
   "src/styles.css"
 ],
-"scripts": [
-  "node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
-]
+
 
 in main.ts
 import 'bootstrap/dist/js/bootstrap.bundle.min.js';
