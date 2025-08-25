@@ -1,8 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
+import { UpperCasePipe, LowerCasePipe, TitleCasePipe, SlicePipe, JsonPipe, DatePipe } from '@angular/common';
 
 @Component({
   selector: 'app-admin',
-  imports: [],
+  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, SlicePipe, JsonPipe, DatePipe],
   templateUrl: './admin.html',
   styleUrl: './admin.css'
 })
@@ -12,6 +13,7 @@ export class Admin implements OnInit, AfterViewInit, OnDestroy {
   // When it runs: Immediately when component is CREATED in memory
   // Use: initialize variables, inject services
   // ❌ Don’t do API calls (component not ready yet)
+  // constructor not part of lifecycle
   constructor() {
     console.log('constructor run');
   }
@@ -38,4 +40,14 @@ export class Admin implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('ngOnDestroy run');
   }
+
+    // 🔹 pipes
+    // variables for pipes
+  name: string = "mUhAmMaD sHaZeEl";
+  fruits: string[] = ["Apple", "Banana", "Mango", "Orange", "Peach"];
+  student = { id: 101, name: "Ali", course: "Angular" };
+  today: Date = new Date();
+
+
+
 }
