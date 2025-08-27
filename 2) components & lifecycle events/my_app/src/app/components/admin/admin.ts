@@ -1,9 +1,9 @@
 import { Component, OnInit, AfterViewInit, OnDestroy } from '@angular/core';
-import { UpperCasePipe, LowerCasePipe, TitleCasePipe, SlicePipe, JsonPipe, DatePipe } from '@angular/common';
+
 
 @Component({
   selector: 'app-admin',
-  imports: [UpperCasePipe, LowerCasePipe, TitleCasePipe, SlicePipe, JsonPipe, DatePipe],
+  imports: [],
   templateUrl: './admin.html',
   styleUrl: './admin.css'
 })
@@ -40,14 +40,5 @@ export class Admin implements OnInit, AfterViewInit, OnDestroy {
   ngOnDestroy(): void {
     console.log('ngOnDestroy run');
   }
-
-    // 🔹 pipes
-    // variables for pipes
-  name: string = "mUhAmMaD sHaZeEl";
-  fruits: string[] = ["Apple", "Banana", "Mango", "Orange", "Peach"];
-  student = { id: 101, name: "Ali", course: "Angular" };
-  today: Date = new Date();
-
-
 
 }

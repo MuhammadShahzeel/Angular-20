@@ -1,0 +1,1 @@
+ng g p name // to generate a new pipe   
