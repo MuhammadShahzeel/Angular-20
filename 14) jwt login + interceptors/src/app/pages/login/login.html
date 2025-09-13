@@ -1,0 +1,28 @@
+<div class="container d-flex justify-content-center align-items-center vh-100">
+    <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
+      <h3 class="text-center mb-4">Login</h3>
+      <form [formGroup]="loginForm">
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email</label>
+          <input formControlName="EmailId" type="text" class="form-control" id="email" placeholder="Enter your email"  required>
+        </div>
+
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input formControlName="Password" type="password" class="form-control" id="password" placeholder="Enter your password" required>
+        </div>
+
+        
+
+        <!-- Login Button -->
+        <button type="button" (click)="onLogin()"  class="btn btn-primary w-100">Login</button>
+      </form>
+
+      <!-- Signup link -->
+      <p class="text-center mt-3 mb-0">
+        Don't have an account? <a href="#">Sign Up</a>
+      </p>
+    </div>
+  </div>

@@ -1,0 +1,39 @@
+<p>test-component works!</p>
+<!-- pipes are used to format data -->
+
+<h2>🔹 String Pipes</h2>
+<p>Original: {{ name }}</p>
+<p>Uppercase: {{ name | uppercase }}</p>
+<p>Lowercase: {{ name | lowercase }}</p>
+<p>Titlecase: {{ name | titlecase }}</p>
+
+<hr>
+
+<h2>🔹 Slice Pipe</h2>
+<p>Original Fruits: {{ fruits }}</p>
+<p>First 3 Fruits: {{ fruits | slice:0:3 }}</p>
+<p>From index 3 onwards: {{ fruits | slice:3 }}</p>
+
+<hr>
+
+<h2>🔹 JSON Pipe</h2>
+<p>Student Object:</p>
+<pre>{{ student | json }}</pre>
+
+<hr>
+
+<h2>🔹 Date Pipe</h2>
+<p>Default: {{ today }}</p>
+<p>Short Date: {{ today | date:'shortDate' }}</p>
+<p>Full Date: {{ today | date:'fullDate' }}</p>
+<p>Short Time: {{ today | date:'shortTime' }}</p>
+<p>Medium: {{ today | date:'medium' }}</p>
+<p>Custom Format: {{ today | date:'dd-MM-yyyy, hh:mm a' }}</p>
+<p>Custom Format: {{ today | date:'dd-MMM-yyyy'}}</p>
+<p>Custom Format: {{ today | date:'dd-MMMM-yy'}}</p>
+
+<h2>🔹 Custom pipe</h2>
+<p>{{ name | na }}</p>
+<p>{{ emptyString | na }}</p>
+
+

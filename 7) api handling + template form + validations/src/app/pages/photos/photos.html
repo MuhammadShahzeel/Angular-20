@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-8">
+        <div class="card">
+            <div class="card-header bg-warning">
+                Photos List
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Sr No</th>
+                            <th>Title</th>
+                            <th>Url</th>
+                            <th>Thumbnail</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @for (item of photoList; track $index) {
+                        <tr>
+                            <td>{{$index + 1}}</td>
+                            <td>{{item.title}}</td>
+                            <td>{{item.url}}</td>
+                            <td>{{item.thumbnailUrl}}</td>
+                            <td>
+                                <button class="btn btn-danger" (click)="onDeletePhoto(item.id)">Delete</button>
+                                <button class="btn btn-primary" (click)="onEditPhoto(item)">Edit</button>
+                            </td>
+                        </tr>
+                        }
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col-4">
+        <div class="card">
+            <div class="card-header bg-warning">
+                Photos List
+            </div>
+            <div class="card-body">
+                <!-- to make sure button is disabled if valoidations not fullfiled we use  ngForm -->
+                <form #photoForm="ngForm">
+                    <div class="row">
+                        <div class="col-6">
+                            <label>Album id</label>
+                            <input  type="text" name="albumId" [(ngModel)]="newPhoto.albumId" class="form-control" />
+                        </div>
+                        <div class="col-6">
+                            <label>Title</label>
+                            <!-- for validatons -->
+                            <input required minlength="4" #titleInput="ngModel" type="text" name="title" [(ngModel)]="newPhoto.title" class="form-control" />
+                           @if(titleInput.touched){
+                           
+                            <div class="text-danger">
+                                @if (titleInput.errors?.['required'] ) {
+                                    <span>This field is required</span>
+                                }
+                                @if (titleInput.errors?.['minlength']) {
+                                    <span>minimum 4 characters needed</span>
+                                }
+                            </div>
+                        }
+                        </div>
+                        <div class="col-6">
+                            <label>Url</label>
+                            <input  type="text" #urlInput="ngModel" name="url" [(ngModel)]="newPhoto.url" class="form-control" pattern="^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([/\w.-]*)*\/?$"/>
+                            <div class="text-danger">
+                                @if (urlInput.errors?.['pattern']) {
+                                    <span>Invalid URL format</span>
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <label>Thumbnail</label>
+                            <input type="text" name="thumbnailUrl" [(ngModel)]="newPhoto.thumbnailUrl" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="row pt-2">
+                        <div class="col-6">
+                            <button class="btn btn-secondary">Reset</button>
+                        </div>
+                        <div class="col-6">
+                            <!-- disable button if form is invalid -->
+
+
+                            @if (newPhoto.id == 0) {
+
+                                <button class="btn btn-success" [disabled]="photoForm.invalid" (click)="onSavePhoto()">Save</button>
+                            } @else {
+                                <button class="btn btn-warning" [disabled]="photoForm.invalid" (click)="onUpdatePhoto()">Update</button>
+                            }
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

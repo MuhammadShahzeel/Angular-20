@@ -1,0 +1,43 @@
+<h1>resource</h1>
+<!-- //advantage of resourse api it has bultin hasvalue etc -->
+ @if (userData.error()) {
+  <p style="color:red">Failed to load users</p>
+}
+@else if (userData.isLoading()) {
+  <div>Loading users...</div>
+} @else {
+  <div>
+    <ul>
+      @for (item of userData.value(); track $index) {
+        <li>{{ item.username }} - {{ item.email }}</li>
+      }
+    </ul>
+  </div>
+}
+
+
+<!-- ------------------------------------------------------------------- -->
+
+<!-- all these properties also availble in resource -->
+<h1>RxJS Resource</h1>
+ @if (userDataRx.error()) {
+  <!-- ❌ Error state -->
+  <p class="text-red-500">❗ Failed to load users</p>
+} @else if (userDataRx.isLoading()) {
+  <!-- ⏳ Loading state -->
+  <p class="text-gray-400">⏳ Loading users...</p>
+} @else if (userDataRx.hasValue() && userDataRx.value().length === 0) {
+  <!-- 📭 Empty state -->
+  <p class="text-yellow-500">📭 No users found.</p>
+} @else {
+  <!-- ✅ Success state -->
+  <ul>
+    @for (user of userDataRx.value(); track user.id) {
+      <li>
+        <span class="font-bold">{{ user.username }}</span>
+        <span class="text-gray-500">({{ user.email }})</span>
+      </li>
+    }
+  </ul>
+}
+
