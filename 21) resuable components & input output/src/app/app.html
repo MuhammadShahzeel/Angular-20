@@ -1,0 +1,18 @@
+
+<h1>Hello World</h1>
+//reusable component
+<app-r-table [headers]="['name', 'email']" [data]="rowData" ></app-r-table>
+<app-r-table [headers]="colData"></app-r-table>
+
+
+<!-- Table WITHOUT actions -->
+<app-r-table [headers]="['id', 'name', 'email']" [data]="rowData"></app-r-table>
+
+<!-- Table WITH actions -->
+<app-r-table 
+  [headers]="['id', 'name', 'email']" 
+  [data]="rowData" 
+  [actions]="true"
+  (editRow)="handleEdit($event)" 
+  (deleteRow)="handleDelete($event)">
+</app-r-table>

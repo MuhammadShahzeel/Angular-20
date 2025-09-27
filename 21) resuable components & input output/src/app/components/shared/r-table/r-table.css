@@ -1,0 +1,23 @@
+.rtable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.rtable th, .rtable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.rtable th {
+  background: #333;
+  color: #fff;
+}
+
+.pagination {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}

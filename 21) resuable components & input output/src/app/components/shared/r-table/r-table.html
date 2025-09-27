@@ -1,0 +1,27 @@
+<table class="rtable">
+  <thead>
+    <tr>
+      @for (h of headers; track $index) {
+        <th>{{ h }}</th>
+      }
+      @if (actions) {
+        <th>Actions</th>
+      }
+    </tr>
+  </thead>
+  <tbody>
+    @for (row of data; track $index) {
+      <tr>
+        @for (h of headers; track $index) {
+          <td>{{ row[h] }}</td>
+        }
+        @if (actions) {
+          <td>
+            <button (click)="onEdit(row)">✏️ Edit</button>
+            <button (click)="onDelete(row)">🗑️ Delete</button>
+          </td>
+        }
+      </tr>
+    }
+  </tbody>
+</table>
