@@ -16,8 +16,4 @@ export const tokenInterceptor: HttpInterceptorFn = (req, next) => {
   // Pass modified request to the next handler
   return next(newReq);
 
-
-
-
-
 };
