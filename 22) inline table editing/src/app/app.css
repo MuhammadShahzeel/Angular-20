@@ -1,0 +1,100 @@
+/* app.css — Modern, clean table styles */
+:root{
+  --bg: #f6f8fb;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #2563eb;
+  --accent-2: #7c3aed;
+  --border: #e6e9ef;
+  --shadow: 0 6px 20px rgba(16,24,40,0.06);
+  --radius: 10px;
+  --pad: 16px;
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+}
+
+html,body{height:100%;margin:0;background:var(--bg);color:#0f172a}
+
+.app-container{
+  max-width:1100px;
+  margin:40px auto;
+  padding:20px;
+}
+
+.posts-table{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background:linear-gradient(180deg, rgba(255,255,255,0.9), rgba(255,255,255,0.98));
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  overflow:hidden;
+  table-layout:fixed;
+}
+
+.posts-thead th{
+  text-align:left;
+  padding:14px 18px;
+  font-weight:600;
+  font-size:13px;
+  color:var(--muted);
+  background:linear-gradient(180deg, rgba(244,246,250,0.9), rgba(247,249,252,0.95));
+  border-bottom:1px solid var(--border);
+}
+
+.posts-tbody .post-row{
+  transition:background .15s ease;
+}
+
+.posts-tbody .post-row:nth-child(even){
+  background:transparent;
+}
+
+.posts-tbody .post-row:hover{
+  background:linear-gradient(90deg, rgba(37,99,235,0.03), rgba(124,58,237,0.02));
+}
+
+.posts-tbody td{
+  padding:14px 18px;
+  vertical-align:top;
+  border-bottom:1px solid var(--border);
+  font-size:14px;
+  color:#0b1220;
+  overflow-wrap:anywhere;
+}
+
+.col.id{width:70px}
+.col.user-id{width:90px}
+.col.title{width:260px;font-weight:600;color:#0f172a}
+.col.body{width:auto}
+
+.post-body{
+  white-space:pre-wrap; /* preserve newlines */
+  line-height:1.45;
+  color:#102a43;
+}
+
+/* Responsive — stack rows on narrow screens */
+@media (max-width:720px){
+  .posts-table, .posts-thead, .posts-tbody, .posts-thead th, .post-row, .posts-tbody td{
+    display:block;
+    width:100%;
+  }
+  .posts-thead{display:none}
+  .post-row{margin-bottom:12px;border-radius:8px;background:var(--card);box-shadow:0 4px 12px rgba(2,6,23,0.04);padding:12px}
+  .posts-tbody td{border-bottom:none;padding:8px 12px}
+  .posts-tbody td::before{
+    content:attr(data-label);
+    display:block;
+    font-size:12px;
+    color:var(--muted);
+    margin-bottom:6px;
+    font-weight:600;
+  }
+}
+
+/* small utility */
+.kv{display:flex;gap:8px;align-items:center}
+.kv .muted{color:var(--muted);font-size:12px}
+
+/* Accessibility focus */
+.post-row:focus-within{outline:3px solid rgba(37,99,235,0.12);outline-offset:4px}

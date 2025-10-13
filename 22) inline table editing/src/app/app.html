@@ -1,0 +1,72 @@
+<div class="app-container">
+    <div>
+        <button (click)="addNew()">add new</button>
+    </div>
+  <table class="posts-table" role="table">
+    <thead class="posts-thead">
+      <tr>
+        <th scope="col">User ID</th>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Body</th>
+        <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody class="posts-tbody">
+
+      <!-- Replace the above with Angular 17+ @for syntax below -->
+      @for (post of postList; track post.id) {
+        <tr class="post-row">
+          <td class="col id" data-label="ID">
+          @if (post.isEditable) {
+            <input type="text" class="form-control" [(ngModel)]="post.id" />
+          } @else {
+            {{ post.id }}
+          }
+
+
+          </td>
+          <td class="col user-id" data-label="User ID">
+            @if (post.isEditable) {
+              <input type="text" [(ngModel)]="post.userId" />
+            } @else {
+              {{ post.userId }}
+            }
+          </td>
+          <td class="col title" data-label="Title">
+            @if (post.isEditable) {
+              <input type="text" [(ngModel)]="post.title" />
+            } @else {
+              {{ post.title }}
+            }
+          </td>
+          <td class="col body" data-label="Body">
+            @if (post.isEditable) {
+              <textarea name="" id="" [(ngModel)]="post.body"></textarea>
+            } @else {
+              {{ post.body }}
+            }
+          </td>
+
+          <td class="col action" data-label="Action">
+            @if (post.isEditable) {
+              @if (post.id ==0) {
+
+                <button (click)="onSave(post)" >Save</button>
+              }
+              @else{
+                <button >Update</button>
+              }
+
+              <button (click)="cancelRow(post)">Cancel</button>
+            } @else {
+              <button (click)="onEdit(post)">Edit</button>
+              <button >Delete</button>  
+            }
+          </td>
+        </tr>
+      }
+
+    </tbody>
+  </table>
+</div>
